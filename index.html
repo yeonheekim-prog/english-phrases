@@ -123,6 +123,7 @@
       <button class="btn-line mini" id="fStar" onclick="setFilter('star')">⭐ 중요</button>
       <button class="btn-line mini" id="fWeak" onclick="setFilter('weak')">🔥 약한 것</button>
     </div>
+    <button class="btn-line mini" style="width:100%;margin-bottom:14px" onclick="openBulk()">📋 여러 개 한꺼번에 넣기 (PC에서 편해요)</button>
     <div id="list"></div>
   </section>
 
@@ -171,13 +172,35 @@
   </div>
 </div>
 
+<!-- 일괄 붙여넣기 시트 -->
+<div class="sheet-bg hide" id="bulkBg" onclick="if(event.target===this)closeBulk()">
+  <div class="sheet">
+    <h2>📋 여러 개 한꺼번에 넣기</h2>
+    <div class="mid" style="text-align:left;margin-top:6px">한 줄에 하나씩 붙여넣으세요. <b>영어가 앞이든 한글이 앞이든</b> 알아서 나눕니다.</div>
+    <div class="memo" style="margin-top:10px;line-height:1.9">
+      take a walk : 산책하다<br>
+      산책하다: "take a walk"<br>
+      It’s up to you. 네가 정해<br>
+      "Look quickly" (빨리 보다)<br>
+      <span style="opacity:.7">엑셀에서 영어·뜻·예문 3칸을 복사해 붙여넣어도 돼요</span>
+    </div>
+    <label>여기에 붙여넣기</label>
+    <textarea id="bulkTxt" style="min-height:180px" autocapitalize="none" autocorrect="off" spellcheck="false" oninput="bulkPreview()" placeholder="take a nap : 낮잠 자다&#10;make a decision : 결정을 내리다"></textarea>
+    <div id="bulkPrev"></div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn-line" onclick="closeBulk()">취소</button>
+      <button class="btn-main" style="min-height:48px" onclick="bulkSave()">넣기</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* =========================================================
    영어 표현 노트  v1
    저장: localStorage("englishPhrases_v1") — 바뀔 때마다 즉시 저장
    ========================================================= */
 var KEY = 'englishPhrases_v1';
-var VER = '버전 1';
+var VER = '버전 2';
 var db, tab = 'list', filter = 'all', editId = null;
 
 function seed(){
@@ -315,6 +338,106 @@ function delItem(){
   if (!confirm('이 표현을 지울까요?')) return;
   for (var i=0;i<db.items.length;i++) if (db.items[i].id===editId){ db.items.splice(i,1); break; }
   save(); closeEdit(); renderList();
+}
+
+/* ---------- 여러 개 한꺼번에 넣기 ---------- */
+var HAN = /[가-힣]/, LAT = /[A-Za-z]/;
+function clean(s){
+  return String(s || '').trim()
+    .replace(/^["“”'‘’]+|["“”'‘’]+$/g, '')   // 앞뒤 따옴표
+    .replace(/^[:\-–—=|]+|[:\-–—=|]+$/g, '') // 앞뒤 구분기호 찌꺼기
+    .trim();
+}
+function splitLine(L){
+  // 1) 탭 = 엑셀에서 복사한 여러 칸
+  if (L.indexOf('\t') >= 0){
+    var p = L.split('\t');
+    return pair(p[0], p[1], p.slice(2).join(' '));
+  }
+  // 2) 괄호형:  Look quickly (빨리 보다)
+  var mp = L.match(/^(.+?)\s*[（(]\s*([^)）]+?)\s*[)）]\s*$/);
+  if (mp){ var r = pair(mp[1], mp[2], ''); if (r) return r; }
+  // 3) 구분기호 (맨 처음 나오는 것 하나로만 자름)
+  var m = L.match(/\s*::\s*|\s*[|]\s*|\s*=\s*|\s+[-–—]\s+|:\s+|\s*:\s*(?=["“'‘])|\s+\/\s+/);
+  if (m){
+    var r2 = pair(L.slice(0, m.index), L.slice(m.index + m[0].length), '');
+    if (r2) return r2;
+  }
+  // 4) 구분기호 없이 붙어 있으면 한글이 시작되는 곳에서 자르기
+  var h = L.match(HAN);
+  if (h){
+    var r3 = pair(L.slice(0, h.index), L.slice(h.index), '');
+    if (r3) return r3;
+    var r4 = pair(L.slice(h.index), L.slice(0, h.index), '');   // 한글이 앞인 경우
+    if (r4) return r4;
+  }
+  return null;
+}
+function pair(a, b, ex){
+  a = clean(a); b = clean(b); ex = clean(ex);
+  if (!a || !b) return null;
+  // 한글이 앞에 있으면 뒤바꾸기
+  if (HAN.test(a) && !HAN.test(b) && LAT.test(b)){ var t = a; a = b; b = t; }
+  if (!LAT.test(a) || HAN.test(a)) return null;   // 영어 칸에 한글이 섞이면 버림
+  if (!HAN.test(b)) return null;                  // 뜻 칸에 한글이 없으면 버림
+  if (a.length > 70 || b.length > 45) return null; // 설명 문장은 표현이 아님
+  return {en:a, ko:b, ex:ex};
+}
+function parseBulk(txt){
+  var lines = String(txt || '').replace(/\r/g, '').split('\n');
+  var rows = [], bad = [], dup = 0, seen = {};
+  for (var i = 0; i < db.items.length; i++) seen[norm(db.items[i].en)] = 1;
+  for (var j = 0; j < lines.length; j++){
+    var L = lines[j].trim();
+    if (!L || /^[-=*·•_\s]+$/.test(L)) continue;
+    L = L.replace(/^\s*(?:[-*•·▪]|\d+[.)]|\d+\.\d+\.?)\s*/, '').trim();  // 목록기호·번호 제거
+    if (!L || L.length > 140) { if (L) bad.push(L); continue; }
+    var r = splitLine(L);
+    if (!r){ bad.push(L); continue; }
+    var k = norm(r.en);
+    if (!k){ bad.push(L); continue; }
+    if (seen[k]){ dup++; continue; }
+    seen[k] = 1;
+    rows.push(r);
+  }
+  return {rows:rows, bad:bad, dup:dup};
+}
+function openBulk(){
+  document.getElementById('bulkTxt').value = '';
+  document.getElementById('bulkPrev').innerHTML = '';
+  document.getElementById('bulkBg').classList.remove('hide');
+  setTimeout(function(){ document.getElementById('bulkTxt').focus(); }, 150);
+}
+function closeBulk(){ document.getElementById('bulkBg').classList.add('hide'); }
+function bulkPreview(){
+  var res = parseBulk(document.getElementById('bulkTxt').value);
+  var el = document.getElementById('bulkPrev');
+  if (!res.rows.length && !res.bad.length && !res.dup){ el.innerHTML = ''; return; }
+  var h = '<div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">'
+    + '<span class="pill g">넣을 표현 ' + res.rows.length + '개</span>'
+    + (res.dup ? '<span class="pill">이미 있어서 제외 ' + res.dup + '개</span>' : '')
+    + (res.bad.length ? '<span class="pill r">못 읽은 줄 ' + res.bad.length + '개</span>' : '')
+    + '</div>';
+  var show = res.rows.slice(0, 5);
+  for (var i = 0; i < show.length; i++){
+    h += '<div class="card" style="padding:10px 12px;margin:8px 0 0"><div class="en" style="font-size:16px">' + esc(show[i].en) + '</div><div class="ko" style="font-size:14px">' + esc(show[i].ko) + '</div>'
+      + (show[i].ex ? '<div class="ex" style="margin-top:5px">' + esc(show[i].ex) + '</div>' : '') + '</div>';
+  }
+  if (res.rows.length > 5) h += '<div class="mid" style="margin-top:8px">…외 ' + (res.rows.length - 5) + '개</div>';
+  if (res.bad.length) h += '<div class="memo" style="margin-top:10px">못 읽은 줄은 그냥 넘어가요 (제목·설명 문장 등). 예: ' + esc(res.bad[0].slice(0, 40)) + '…</div>';
+  el.innerHTML = h;
+}
+function bulkSave(){
+  var res = parseBulk(document.getElementById('bulkTxt').value);
+  if (!res.rows.length){ alert('넣을 표현을 못 찾았어요.\n예시처럼 "영어 : 뜻" 형태로 한 줄에 하나씩 붙여넣어 주세요.'); return; }
+  var base = Date.now();
+  for (var i = 0; i < res.rows.length; i++){
+    var r = res.rows[i];
+    db.items.push(newItem(r.en, r.ko, r.ex, '', base + i));
+  }
+  save(); closeBulk();
+  alert(res.rows.length + '개를 넣었어요!' + (res.dup ? '\n(이미 있던 ' + res.dup + '개는 건너뛰었어요)' : ''));
+  go('list'); window.scrollTo(0,0);
 }
 
 /* ---------- 소리 (TTS) ---------- */
