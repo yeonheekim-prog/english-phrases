@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="영어표현노트">
+<meta name="theme-color" content="#4f46e5">
+<title>영어 표현 노트</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAArpSURBVHhe7Z29i51FFMb966wCQkAEQQhICrGIhaSIjWm22marbZImFlqIhQiSQoSAIIQUQRALSZFgvl2jWTVrPq48F0bed967d+ec+TpzfB74FQmbeW/u/e3cmXPmvve1N17/ZUWIF16L/4KQkaHQxBUUmriCQhNXUGjiCrdCv3363uqjDx+rwb+Px6zNm6fuLh5HLufPPVpcxzNuhd7fe7LKyeefPV2MWZuz79yPH0aVPLj/YvXDzWfr/+Ol/SeupHcr9E8/HsWvoyh40eMxa9NK6E05OHi5+vqrw/WsHj+ukXAp9PvvPohfL1Vav7g9hZ7m1s//rC5eaPt/L4VLoT/95I/4NVIFM1Y8dk2sCB2CZcmZt9rvJXJwKTSWCyVy+PTleqMWj18La0IjeC4/eO/h4rFaxZ3QWCaUzM7Hvy6uUQuLQiNHR6+G2Ti6ExrLhJK59u1fi2vUwqrQCGbqlu9WWlwJjSccy4SSwezUqiZtWWjkm6t/Lh6zNVwJvbtzEL8GRbK3+9viWjWwLnTLX24troT+/ru/49egSLDbj69VA43QeEdCVWcTN64/Wz/23Jr8NK1+ubW4ERrlJcwgKcHPSeVvUb7SCJ3aAMLY6AyigZITPG/x2JZwI7Sk1Y3GAVq+kuDn42uWpqbQAewzMHNrg+cuHtMSboSWvK2iEoJynCQYP75maVoIDSC15PmaBjN8PJ4lXAgtbXVjNtfIg+vE1y6J5jFphAaoK2sTj2UJF0JLW92h8yXtKOI68bVL0lJozNKpe45pOEM3QCImXsTQIEBdVRKtPKm0FBpolh13bj9fjGOJ4YWWtrqnnT+cKJOmZgu4tdDY4Enz5RdtD2xJGV5oaasbzZfwbzWdxZon8FoLrVlyWD9WOrTQUiGny40AZmxJsIaMxyhFS6Gxj5DG+nIDDC20tNWN+mvuGEitWaql0NLGEtKiFp/L0EJLX5RNbVvNbr/WIZ1WQkubSkir9n8uwwotaXUj2w7WSDtnm5YuJagtNP7/KD1KnjcE12jR+i/BsEJLWt3IthkGM7c0081lKWoIHW6NgFlZc44Dz9txE4FFhhVaWkPFL0A8RgAvmDSb1uO5aITGbAvpNiGdiePUrOjUYkihpa1u5KS3TAggCWQ5aUwpGqFrBDP5tgnAMkMKLW11b1tuBKRLGKT0i95baLzrbdo4j8SQQkta3ciVy78vxojRyFT6BJ7mMZQIavk19gQ9GE5oaasbgSjxOJuQrsuR1LFT6CX0NHg3wway9HKqFcMJLW11S2ZRzOTSlDyBZ0HoaVDnr31ktjRDCS1tdSMS4TSbzZLtYGtCh/S4caWWoYTWtKmlMwwElabUnYWsCo2gTDlCPXoooaWtbs3sKa2gIKVmMMtCI1i+1eiQlmQYoaWtbkSy3AhoPppU6lMcGqG3NVaktfWUtLyTlIZhhNbUibWH8aVlQaTErXc1Qp/U+g6EO/pLP6WzKaXr7yUZRmhpSQ2bx/jrGVKRLm2QEifwagodXydH7JpnwnMZQmhN9aF1Stx6t5XQAc0x0hCrHcUhhNZs1Hokt9vWWmggreuHWL2D0hBCa9a0PZL7IvcQWlPbR/Bv4rEsYF5orGlHybYPEaTQQ2igrYaUbPuXwrzQOZuXHslZW/YSGrcm0ERbRaqJaaG1b4c9k3JU9Th6Ca0piSJ494zH6o1poTWtbgvRnlTrJbR2Y8gZWoj0w6tWknL+ehO9hNbcQQnhGlqAptVtJdp7KPcQGptY7fMcj2UBs0Jri/7xWYZctCVD6Sk/0ENo7btg7nVrYVZoaasbkRzmT0VbNtScwGstdE7DSvP/a4FJobWtbs3puhQ097PQiNZK6NyzHIjFCgcwKTR++zXRvM2noK0CSF/0mkKHg1e5IiOljsvWwKTQmnWr5jB/Kpr7SCPSG7VohO6R3DMrNTEntHbNWmu5AbQNHukxyxGExkY5ftyWMCe09i2xdpFf+7gkt961LjR+qWst60phSmjtTJi6jsxB+jVwIZKPLFkWGq9LqQ8D18SU0NpWd4sSkuY+0ojk1rtWhR5FZmBKaG2RX1pN0CL9+oqQ1BN4FoVGbd/6MmOKGaG1re6WJSTNfaSR1FvvWhIar4X2TEpPzAitbXVLS2M55Jx7SDmBZ0FoTBBYwlk8eJSCGaE1rW5EUkUogXZZlPKFO72ERg0fyynL9eVUTAiN2Ss+FJQC5ErdcJUC1Y74caSQ8oWV2uchFTxfqNcHsPfI+ciYRUwITUgpKDRxBYUmrqDQxBUUmriCQhNXUGjiCgpNXEGhiSsoNHEFhSauoNDEFRSauIJCE1dQaOIKCk1cQaGJKyg0cQWFJq6g0MQVFJq4gkITV1Bo4goKTVxBoYkrKDRxBYUmrqDQxBUUmriCQhNXUGjiCgpNXEGhiSsoNHEFhSauoNDEFRSauIJCE1dQaOIKCk1cQaGJKyg0cQWFJq6g0MQVFJq4gkITV1Bo4goKTVxBoYkrKDRxBYUmrqDQDXj79L3V7s7B6tNP/lj9cPPZmp9+PFodl8OnL//7OXDt279W+3tPVu+/+2AxNplDoStx/tyj1eefPd0qriYHBy8p+BYodEHePHV3dWn/yVq6Vjn7zv3F4/g/Q6EL0EPkEAo9h0Jn0kvkEAo9h0IrwUbv++/+jv1qHgo9h0IrgER3bj+P3eoSCj2HQgv56MPH67KalVDoORRawN7ub7FP3UOh51DoRDAzWwyFnkOhE4A0lpYZ01DoORT6BFBjLr0BvPXzP+suImb9AK6Dykn488ULj9et8hvXn60e3H8RD/FfKPQcCn0CpUpzkBJr8DNv3VtcIwW0uSF4/MtFoedQ6C2gaZKbIHI8dg6YwXFoCaHQcyj0MWAJkNsBxHIBy4h47FJA7JrjjwiFPobc2fnLLw4XY5L6UOgN5M7O2PDFY5I2UOgN5MzOWGbE45F2UOgNbCuTbQv+Hde0faHQESiPabPz8a+L8UhbKHSEdrmBZkk8FmkPhY7QNlI4O9uAQkdozmxg7RyPQ/pAoSd88N7D2NWkfHP1z8VYpA8UesKVy7/HrialdGub6KHQE9AQ0YTnKexAoSdg6SDN0dGrxTikHxR6Arp80nBDaAsKPUFz2y7Wn21BoSdoWt44lxyPQ/pBoSdgPSwNhbYFhZ6gERrLlHgc0g8KPUGz5OCm0BYUeoJmU8iynS0o9ARN2Q5hY8UOFHqCprGCsPVtBwo9AR9s1YSHk+xAoSdoD/dzY2gHCj1Be3wU4QF/G1DoCE3pDmEL3AYUOkK7MUQ4S/eHQkfk3NSctzHoD4WOQE05J7zRTF8o9Aa0n/wO4X3t+kGhN5BT7QjB1xfjHnnx2CXB+LWvMRoU+hhyZ2kEZ0NqtMWn31xbY/yRodDHUGKWDsESRHvn/inhLv7TO6NS6DkUegvaw0qbglN5WIZIvpYCsqIUiE+jx19FEUKh51DoLUC8nPtEbwsaMfi0C/j6q8P1zBv+DFLv4ESh51DoE8DXPmg+ydIqFHoOhU5Ae2ipRSj0HAqdSImqR41Q6DkUOhGUyrDWtRYKPYdCC9nfs7X8oNBzKLQCbBRTqxC1Q6HnUGglEMnCuppCz6HQmaCj2EtsHFdNbdL8X6DQhYDY6AS2qFnjOhcvPF48BkKhq3D+3KP1twGUap3jkBPa35CYp+u2Q6EbgE0k2N05WLe4AQ4shTY3ZA1/D/Bz+HkuJ+RQaOIKCk1cQaGJKyg0ccW/ezk0Mq6TgMMAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+  :root{
+    --bg:#f5f6fa; --card:#ffffff; --ink:#1b1c22; --sub:#6b7080;
+    --line:#e6e7ee; --accent:#4f46e5; --accent-soft:#eef0ff;
+    --ok:#12a06a; --ok-soft:#e6f7f0; --bad:#e0413c; --bad-soft:#fdecec;
+    --star:#f5a524;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14151a; --card:#1e2028; --ink:#f2f3f7; --sub:#9aa0b0;
+      --line:#2c2f3a; --accent:#8b85ff; --accent-soft:#262a45;
+      --ok:#3ddc9a; --ok-soft:#16302a; --bad:#ff7b76; --bad-soft:#331e1e;
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    font-size:16px; line-height:1.5;
+    padding-bottom:calc(78px + env(safe-area-inset-bottom));
+    -webkit-text-size-adjust:100%;
+  }
+  header{
+    position:sticky; top:0; z-index:20;
+    background:var(--card); border-bottom:1px solid var(--line);
+    padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+  }
+  header h1{margin:0;font-size:19px;letter-spacing:-.3px}
+  header .cnt{font-size:13px;color:var(--sub);margin-top:2px}
+  main{padding:14px 14px 20px;max-width:640px;margin:0 auto}
+  .hide{display:none !important}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+  .en{font-size:19px;font-weight:700;letter-spacing:-.2px;word-break:break-word}
+  .ko{font-size:15px;color:var(--sub);margin-top:4px}
+  .ex{font-size:14px;color:var(--sub);margin-top:8px;padding-left:10px;border-left:3px solid var(--line);font-style:italic}
+  .memo{font-size:13px;color:var(--sub);margin-top:8px;background:var(--bg);padding:8px 10px;border-radius:10px}
+
+  button{font-family:inherit;font-size:15px;cursor:pointer;border:0;border-radius:12px;min-height:44px;padding:0 14px;color:var(--ink);background:var(--bg)}
+  .btn-main{background:var(--accent);color:#fff;font-weight:700;width:100%;min-height:52px;font-size:17px}
+  .btn-line{background:var(--card);border:1px solid var(--line)}
+  .btn-soft{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .row{display:flex;gap:8px}
+  .row>*{flex:1}
+  .mini{min-height:36px;font-size:13px;padding:0 10px;border-radius:10px}
+
+  input,textarea,select{
+    width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+    background:var(--bg);border:1px solid var(--line);border-radius:12px;
+    padding:12px;min-height:46px;
+  }
+  textarea{min-height:70px;resize:vertical}
+  label{display:block;font-size:13px;color:var(--sub);margin:12px 0 5px;font-weight:600}
+
+  .tabbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:30;
+    display:flex;background:var(--card);border-top:1px solid var(--line);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .tabbar button{flex:1;background:none;border-radius:0;min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--sub);font-size:11px;font-weight:600}
+  .tabbar button .ic{font-size:21px;line-height:1}
+  .tabbar button.on{color:var(--accent)}
+
+  .fab{
+    position:fixed;right:16px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:25;
+    width:58px;height:58px;border-radius:50%;background:var(--accent);color:#fff;
+    font-size:30px;line-height:1;box-shadow:0 6px 18px rgba(79,70,229,.4);padding:0;
+  }
+  .sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:40;display:flex;align-items:flex-end}
+  .sheet{background:var(--card);width:100%;max-height:92vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom))}
+  .sheet h2{margin:0 0 4px;font-size:18px}
+
+  .pill{display:inline-block;font-size:12px;padding:4px 9px;border-radius:20px;background:var(--accent-soft);color:var(--accent);font-weight:700}
+  .pill.g{background:var(--ok-soft);color:var(--ok)}
+  .pill.r{background:var(--bad-soft);color:var(--bad)}
+  .star{background:none;min-height:auto;padding:4px;font-size:19px;color:var(--line)}
+  .star.on{color:var(--star)}
+  .empty{text-align:center;color:var(--sub);font-size:14px;padding:44px 16px;line-height:1.8}
+
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);min-height:56px;margin-bottom:9px;font-size:16px;padding:12px 14px;line-height:1.4}
+  .opt.correct{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+  .opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);font-weight:700}
+  .bar{height:7px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:14px}
+  .bar>i{display:block;height:100%;background:var(--accent);transition:width .25s}
+
+  .big{font-size:52px;font-weight:800;text-align:center;letter-spacing:-1px;line-height:1.15}
+  .mid{text-align:center;color:var(--sub);font-size:14px;margin-top:4px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+  .stat b{display:block;font-size:26px;letter-spacing:-.5px}
+  .stat span{font-size:12px;color:var(--sub)}
+  .ver{text-align:center;color:var(--sub);font-size:11px;margin-top:18px}
+  .heard{background:var(--bg);border-radius:12px;padding:10px 12px;font-size:14px;color:var(--sub);margin-top:10px;word-break:break-word}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="hdTitle">📒 영어 표현 노트</h1>
+  <div class="cnt" id="hdSub">저장한 표현 0개</div>
+</header>
+
+<main>
+  <!-- ===== 내 표현 ===== -->
+  <section id="tabList">
+    <input id="q" type="search" placeholder="🔎 표현 · 뜻 검색" oninput="renderList()">
+    <div class="row" style="margin:10px 0 14px">
+      <button class="btn-line mini" id="fAll" onclick="setFilter('all')">전체</button>
+      <button class="btn-line mini" id="fStar" onclick="setFilter('star')">⭐ 중요</button>
+      <button class="btn-line mini" id="fWeak" onclick="setFilter('weak')">🔥 약한 것</button>
+    </div>
+    <div id="list"></div>
+  </section>
+
+  <!-- ===== 발음 연습 ===== -->
+  <section id="tabSpeak" class="hide">
+    <div id="speakBox"></div>
+  </section>
+
+  <!-- ===== 퀴즈 ===== -->
+  <section id="tabQuiz" class="hide">
+    <div id="quizBox"></div>
+  </section>
+
+  <!-- ===== 기록 ===== -->
+  <section id="tabStats" class="hide">
+    <div id="statsBox"></div>
+  </section>
+</main>
+
+<button class="fab" id="fab" onclick="openEdit()">＋</button>
+
+<nav class="tabbar">
+  <button id="tbList" class="on" onclick="go('list')"><span class="ic">📒</span>내 표현</button>
+  <button id="tbSpeak" onclick="go('speak')"><span class="ic">🎤</span>발음연습</button>
+  <button id="tbQuiz" onclick="go('quiz')"><span class="ic">🧠</span>퀴즈</button>
+  <button id="tbStats" onclick="go('stats')"><span class="ic">📊</span>기록</button>
+</nav>
+
+<!-- 추가/수정 시트 -->
+<div class="sheet-bg hide" id="sheetBg" onclick="if(event.target===this)closeEdit()">
+  <div class="sheet">
+    <h2 id="shTitle">표현 추가</h2>
+    <label>영어 표현 *</label>
+    <input id="fEn" type="text" autocapitalize="none" autocorrect="off" placeholder="It's up to you.">
+    <label>뜻 *</label>
+    <input id="fKo" type="text" placeholder="네가 정해 / 너한테 달렸어">
+    <label>예문 (선택)</label>
+    <textarea id="fEx" autocapitalize="none" placeholder="Where should we eat? — It's up to you."></textarea>
+    <label>메모 (선택 · 어디서 봤는지 등)</label>
+    <input id="fMemo" type="text" placeholder="넷플릭스 프렌즈 시즌1">
+    <div class="row" style="margin-top:18px">
+      <button class="btn-line" onclick="closeEdit()">취소</button>
+      <button class="btn-main" style="min-height:48px" onclick="saveItem()">저장</button>
+    </div>
+    <button class="btn-line hide" id="delBtn" style="width:100%;margin-top:10px;color:var(--bad)" onclick="delItem()">이 표현 삭제</button>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   영어 표현 노트  v1
+   저장: localStorage("englishPhrases_v1") — 바뀔 때마다 즉시 저장
+   ========================================================= */
+var KEY = 'englishPhrases_v1';
+var VER = '버전 1';
+var db, tab = 'list', filter = 'all', editId = null;
+
+function seed(){
+  var s = [
+    ['It’s up to you.','네가 정해 / 너한테 달렸어','Where should we eat? — It’s up to you.'],
+    ['I’m on my way.','지금 가는 중이야','Sorry I’m late, I’m on my way.'],
+    ['That makes sense.','그거 말 되네','Ah, that makes sense now.'],
+    ['Let me get back to you.','좀 있다가 다시 알려줄게','I’m not sure yet — let me get back to you.'],
+    ['I could use a break.','좀 쉬어야겠어','It’s been a long day. I could use a break.'],
+    ['Just in case.','혹시 몰라서','Take an umbrella, just in case.'],
+    ['It slipped my mind.','깜빡했어','Sorry, it totally slipped my mind.'],
+    ['I’m not a big fan of it.','나는 그거 별로야','I’m not a big fan of horror movies.']
+  ];
+  var now = Date.now(), out = [];
+  for (var i = 0; i < s.length; i++){
+    out.push(newItem(s[i][0], s[i][1], s[i][2], '예시로 넣어둔 표현', now - (s.length - i) * 1000));
+  }
+  return out;
+}
+function newItem(en, ko, ex, memo, t){
+  return {id:'x' + (t || Date.now()) + Math.random().toString(36).slice(2,7),
+    en:en, ko:ko, ex:ex || '', memo:memo || '', star:false,
+    created:t || Date.now(), correct:0, wrong:0, best:0, tries:0};
+}
+function load(){
+  try{
+    var r = JSON.parse(localStorage.getItem(KEY));
+    if (r && r.items) { if(!r.log) r.log = []; return r; }
+  }catch(e){}
+  return {v:1, items:seed(), log:[]};
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(db)); }catch(e){ alert('저장 공간이 부족해요.'); } }
+function byId(id){ for (var i=0;i<db.items.length;i++) if (db.items[i].id===id) return db.items[i]; return null; }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function todayKey(){ var d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+
+db = load();
+
+/* ---------- 탭 ---------- */
+function go(t){
+  tab = t;
+  var m = {list:'tabList', speak:'tabSpeak', quiz:'tabQuiz', stats:'tabStats'};
+  for (var k in m) document.getElementById(m[k]).classList.toggle('hide', k !== t);
+  var b = {list:'tbList', speak:'tbSpeak', quiz:'tbQuiz', stats:'tbStats'};
+  for (var k2 in b) document.getElementById(b[k2]).classList.toggle('on', k2 === t);
+  document.getElementById('fab').classList.toggle('hide', t !== 'list');
+  window.scrollTo(0,0);
+  if (t==='list') renderList();
+  if (t==='speak') renderSpeak();
+  if (t==='quiz') { quizState = null; renderQuiz(); }
+  if (t==='stats') renderStats();
+  header();
+}
+function header(){
+  var n = db.items.length;
+  var titles = {list:'📒 영어 표현 노트', speak:'🎤 발음 연습', quiz:'🧠 퀴즈', stats:'📊 내 기록'};
+  document.getElementById('hdTitle').textContent = titles[tab];
+  document.getElementById('hdSub').textContent = '저장한 표현 ' + n + '개';
+}
+
+/* ---------- 목록 ---------- */
+function setFilter(f){
+  filter = f;
+  document.getElementById('fAll').className = 'btn-line mini' + (f==='all'?' btn-soft mini':'');
+  document.getElementById('fStar').className = 'btn-line mini' + (f==='star'?' btn-soft mini':'');
+  document.getElementById('fWeak').className = 'btn-line mini' + (f==='weak'?' btn-soft mini':'');
+  renderList();
+}
+function renderList(){
+  var q = (document.getElementById('q').value || '').toLowerCase().trim();
+  var arr = db.items.slice().sort(function(a,b){ return b.created - a.created; });
+  arr = arr.filter(function(it){
+    if (filter==='star' && !it.star) return false;
+    if (filter==='weak' && !(it.wrong > it.correct || (it.correct + it.wrong) === 0)) return false;
+    if (!q) return true;
+    return (it.en+' '+it.ko+' '+it.ex+' '+it.memo).toLowerCase().indexOf(q) >= 0;
+  });
+  var el = document.getElementById('list');
+  if (!arr.length){
+    el.innerHTML = '<div class="empty">' + (q ? '검색 결과가 없어요.' : '아직 표현이 없어요.<br>오른쪽 아래 <b>＋</b> 버튼으로 추가해 보세요.') + '</div>';
+    header(); return;
+  }
+  var h = '';
+  for (var i=0;i<arr.length;i++){
+    var it = arr[i], tot = it.correct + it.wrong;
+    h += '<div class="card">'
+      + '<div style="display:flex;align-items:flex-start;gap:8px">'
+      +   '<div style="flex:1"><div class="en">' + esc(it.en) + '</div><div class="ko">' + esc(it.ko) + '</div></div>'
+      +   '<button class="star ' + (it.star?'on':'') + '" onclick="toggleStar(\'' + it.id + '\')">★</button>'
+      + '</div>'
+      + (it.ex ? '<div class="ex">' + esc(it.ex) + '</div>' : '')
+      + (it.memo ? '<div class="memo">📌 ' + esc(it.memo) + '</div>' : '')
+      + '<div style="margin-top:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">'
+      +   (it.best ? '<span class="pill ' + (it.best>=80?'g':'') + '">발음 ' + it.best + '점</span>' : '')
+      +   (tot ? '<span class="pill ' + (it.correct>=it.wrong?'g':'r') + '">퀴즈 ' + it.correct + '/' + tot + '</span>' : '')
+      +   '<span style="flex:1"></span>'
+      +   '<button class="btn-line mini" onclick="speakOne(\'' + it.id + '\')">🔊 듣기</button>'
+      +   '<button class="btn-line mini" onclick="openEdit(\'' + it.id + '\')">수정</button>'
+      + '</div></div>';
+  }
+  el.innerHTML = h;
+  header();
+}
+function toggleStar(id){ var it = byId(id); it.star = !it.star; save(); renderList(); }
+function speakOne(id){ var it = byId(id); speak(it.en, 1); }
+
+/* ---------- 추가 / 수정 ---------- */
+function openEdit(id){
+  editId = id || null;
+  var it = id ? byId(id) : null;
+  document.getElementById('shTitle').textContent = it ? '표현 수정' : '표현 추가';
+  document.getElementById('fEn').value = it ? it.en : '';
+  document.getElementById('fKo').value = it ? it.ko : '';
+  document.getElementById('fEx').value = it ? it.ex : '';
+  document.getElementById('fMemo').value = it ? it.memo : '';
+  document.getElementById('delBtn').classList.toggle('hide', !it);
+  document.getElementById('sheetBg').classList.remove('hide');
+  if (!it) setTimeout(function(){ document.getElementById('fEn').focus(); }, 150);
+}
+function closeEdit(){ document.getElementById('sheetBg').classList.add('hide'); editId = null; }
+function saveItem(){
+  var en = document.getElementById('fEn').value.trim();
+  var ko = document.getElementById('fKo').value.trim();
+  if (!en || !ko){ alert('영어 표현과 뜻은 꼭 넣어주세요.'); return; }
+  var ex = document.getElementById('fEx').value.trim();
+  var memo = document.getElementById('fMemo').value.trim();
+  if (editId){
+    var it = byId(editId); it.en = en; it.ko = ko; it.ex = ex; it.memo = memo;
+  } else {
+    db.items.push(newItem(en, ko, ex, memo));
+  }
+  save(); closeEdit(); renderList();
+}
+function delItem(){
+  if (!confirm('이 표현을 지울까요?')) return;
+  for (var i=0;i<db.items.length;i++) if (db.items[i].id===editId){ db.items.splice(i,1); break; }
+  save(); closeEdit(); renderList();
+}
+
+/* ---------- 소리 (TTS) ---------- */
+var voice = null;
+function pickVoice(){
+  if (!window.speechSynthesis) return null;
+  var vs = speechSynthesis.getVoices() || [];
+  var pref = ['Samantha','Karen','Daniel','Google US English'];
+  for (var p=0;p<pref.length;p++) for (var i=0;i<vs.length;i++) if (vs[i].name.indexOf(pref[p])>=0) return vs[i];
+  for (var j=0;j<vs.length;j++) if (vs[j].lang && vs[j].lang.indexOf('en-US')===0) return vs[j];
+  for (var k=0;k<vs.length;k++) if (vs[k].lang && vs[k].lang.indexOf('en')===0) return vs[k];
+  return null;
+}
+if (window.speechSynthesis){
+  speechSynthesis.onvoiceschanged = function(){ voice = pickVoice(); };
+  voice = pickVoice();
+}
+function speak(text, rate){
+  if (!window.speechSynthesis){ alert('이 브라우저는 소리 읽기를 지원하지 않아요.'); return; }
+  try{ speechSynthesis.cancel(); }catch(e){}
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = rate || 1;
+  if (!voice) voice = pickVoice();
+  if (voice) u.voice = voice;
+  speechSynthesis.speak(u);
+}
+
+/* ---------- 발음 채점 ---------- */
+function norm(s){ return String(s).toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+function lev(a,b){
+  var m=a.length,n=b.length,prev=[],cur=[],i,j;
+  for(j=0;j<=n;j++) prev[j]=j;
+  for(i=1;i<=m;i++){
+    cur[0]=i;
+    for(j=1;j<=n;j++) cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    prev=cur.slice();
+  }
+  return prev[n];
+}
+function pronScore(target, said){
+  var a=norm(target), b=norm(said);
+  if(!a||!b) return 0;
+  var aw=a.split(' '), bw=b.split(' ');
+  var w = Math.max(0, 1 - lev(aw,bw)/Math.max(aw.length,bw.length));
+  var c = Math.max(0, 1 - lev(a.split(''),b.split(''))/Math.max(a.length,b.length));
+  return Math.round((w*0.6 + c*0.4)*100);
+}
+
+/* ---------- 발음 연습 ---------- */
+var spIdx = 0, rec = null, recOn = false;
+function speakList(){
+  var arr = db.items.slice();
+  if (filter==='star') arr = arr.filter(function(i){return i.star;});
+  return arr.sort(function(a,b){ return a.created - b.created; });
+}
+function renderSpeak(res){
+  var arr = speakList(), box = document.getElementById('speakBox');
+  if (!arr.length){ box.innerHTML = '<div class="empty">먼저 <b>내 표현</b> 탭에서 표현을 추가해 주세요.</div>'; return; }
+  if (spIdx >= arr.length) spIdx = 0;
+  if (spIdx < 0) spIdx = arr.length - 1;
+  var it = arr[spIdx];
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var h = '<div class="mid">' + (spIdx+1) + ' / ' + arr.length + '</div>'
+    + '<div class="card" style="text-align:center;padding:22px 16px">'
+    +   '<div class="en" style="font-size:24px">' + esc(it.en) + '</div>'
+    +   '<div class="ko" style="margin-top:8px">' + esc(it.ko) + '</div>'
+    +   (it.ex ? '<div class="ex" style="text-align:left;margin-top:14px">' + esc(it.ex) + '</div>' : '')
+    +   (it.best ? '<div style="margin-top:12px"><span class="pill ' + (it.best>=80?'g':'') + '">최고 ' + it.best + '점</span></div>' : '')
+    + '</div>'
+    + '<div class="row"><button class="btn-line" onclick="speak(' + JSON.stringify(it.en).replace(/"/g,'&quot;') + ',0.6)">🐢 천천히</button>'
+    + '<button class="btn-line" onclick="speak(' + JSON.stringify(it.en).replace(/"/g,'&quot;') + ',1)">🔊 보통 속도</button></div>';
+
+  if (SR){
+    h += '<button class="btn-main" id="micBtn" style="margin-top:10px" onclick="toggleRec()">' + (recOn ? '⏹ 멈추기 (듣는 중…)' : '🎤 따라 말하기') + '</button>';
+  } else {
+    h += '<div class="card" style="margin-top:10px;font-size:14px;color:var(--sub)">이 브라우저는 마이크 채점을 지원하지 않아요. <b>아이폰 사파리</b>에서 열면 채점이 됩니다. (지금은 듣고 따라 말하기만 해보세요)</div>';
+  }
+  if (res){
+    var cls = res.score>=80 ? 'g' : (res.score>=60 ? '' : 'r');
+    h += '<div class="card" style="margin-top:10px;text-align:center">'
+      + '<div class="big" style="color:' + (res.score>=80?'var(--ok)':(res.score>=60?'var(--accent)':'var(--bad)')) + '">' + res.score + '점</div>'
+      + '<div class="mid">' + (res.score>=80?'훌륭해요! 통과 👏':(res.score>=60?'거의 다 왔어요. 한 번 더!':'다시 듣고 천천히 따라해 보세요')) + '</div>'
+      + '<div class="heard">들린 말: ' + esc(res.said || '(못 알아들었어요)') + '</div></div>';
+  }
+  h += '<div class="row" style="margin-top:10px">'
+    + '<button class="btn-line" onclick="spMove(-1)">← 이전</button>'
+    + '<button class="btn-soft" onclick="spMove(1)">다음 →</button></div>'
+    + '<div class="ver">' + VER + '</div>';
+  box.innerHTML = h;
+}
+function spMove(d){ stopRec(); spIdx += d; renderSpeak(); }
+function toggleRec(){ if (recOn) stopRec(true); else startRec(); }
+function stopRec(re){ recOn = false; if (rec){ try{ rec.stop(); }catch(e){} } if (re) renderSpeak(); }
+function startRec(){
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return;
+  var arr = speakList(), it = arr[spIdx];
+  try{ speechSynthesis.cancel(); }catch(e){}
+  rec = new SR();
+  rec.lang = 'en-US'; rec.interimResults = false; rec.maxAlternatives = 5; rec.continuous = false;
+  recOn = true; renderSpeak();
+  rec.onresult = function(ev){
+    var best = 0, bestTxt = '';
+    var r = ev.results[0];
+    for (var i=0;i<r.length;i++){
+      var s = pronScore(it.en, r[i].transcript);
+      if (s > best){ best = s; bestTxt = r[i].transcript; }
+    }
+    recOn = false;
+    it.tries = (it.tries||0) + 1;
+    if (best > (it.best||0)) it.best = best;
+    save();
+    renderSpeak({score:best, said:bestTxt});
+  };
+  rec.onerror = function(ev){
+    recOn = false;
+    renderSpeak();
+    if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed')
+      alert('마이크 권한이 꺼져 있어요.\n아이폰 설정 → Safari → 마이크 → 허용 으로 바꿔주세요.');
+    else if (ev.error === 'no-speech')
+      alert('소리가 안 들렸어요. 버튼을 누른 뒤 바로 말해 주세요.');
+  };
+  rec.onend = function(){ if (recOn){ recOn = false; renderSpeak(); } };
+  try{ rec.start(); }catch(e){ recOn = false; renderSpeak(); }
+}
+
+/* ---------- 퀴즈 ---------- */
+var quizState = null;
+function renderQuiz(){
+  var box = document.getElementById('quizBox');
+  if (db.items.length < 4){
+    box.innerHTML = '<div class="empty">퀴즈는 표현이 <b>4개 이상</b>일 때 시작할 수 있어요.<br>지금 ' + db.items.length + '개 있어요.</div>';
+    return;
+  }
+  if (!quizState){
+    box.innerHTML = '<div class="card" style="text-align:center;padding:24px 16px">'
+      + '<div style="font-size:40px">🧠</div>'
+      + '<div style="font-weight:700;font-size:18px;margin-top:6px">퀴즈 풀기</div>'
+      + '<div class="mid" style="margin-top:6px">뜻 맞히기 · 영어 맞히기 · 듣고 맞히기<br>가 섞여서 나와요</div></div>'
+      + '<button class="btn-main" onclick="startQuiz(\'mix\')">전체 표현으로 풀기</button>'
+      + '<button class="btn-line" style="width:100%;margin-top:10px" onclick="startQuiz(\'weak\')">🔥 약한 표현만 풀기</button>'
+      + '<button class="btn-line" style="width:100%;margin-top:10px" onclick="startQuiz(\'star\')">⭐ 중요 표현만 풀기</button>'
+      + '<div class="ver">' + VER + '</div>';
+    return;
+  }
+  if (quizState.done) return renderQuizResult();
+  var q = quizState.qs[quizState.i];
+  var pct = Math.round(quizState.i / quizState.qs.length * 100);
+  var head = q.type==='ko' ? '이 뜻의 영어 표현은?' : (q.type==='en' ? '이 표현의 뜻은?' : '🔊 듣고 뜻을 고르세요');
+  var body = q.type==='ko' ? '<div class="en" style="font-size:21px">' + esc(q.item.ko) + '</div>'
+           : q.type==='en' ? '<div class="en" style="font-size:21px">' + esc(q.item.en) + '</div>'
+           : '<button class="btn-soft" style="width:100%;min-height:56px;font-size:17px" onclick="speak(' + JSON.stringify(q.item.en).replace(/"/g,'&quot;') + ',0.85)">🔊 다시 듣기</button>';
+  var h = '<div class="bar"><i style="width:' + pct + '%"></i></div>'
+    + '<div class="mid" style="margin-bottom:10px">' + (quizState.i+1) + ' / ' + quizState.qs.length + ' · 맞힌 개수 ' + quizState.ok + '</div>'
+    + '<div class="card" style="text-align:center;padding:20px 16px"><div class="mid" style="margin:0 0 10px">' + head + '</div>' + body + '</div>';
+  for (var i=0;i<q.opts.length;i++){
+    var cls = 'opt';
+    if (q.picked != null){
+      if (i === q.answer) cls += ' correct';
+      else if (i === q.picked) cls += ' wrong';
+    }
+    h += '<button class="' + cls + '" onclick="pick(' + i + ')">' + esc(q.opts[i]) + '</button>';
+  }
+  if (q.picked != null){
+    h += '<div class="card" style="margin-top:6px"><div class="en">' + esc(q.item.en) + '</div><div class="ko">' + esc(q.item.ko) + '</div>'
+      + (q.item.ex ? '<div class="ex">' + esc(q.item.ex) + '</div>' : '') + '</div>'
+      + '<button class="btn-main" onclick="nextQ()">' + (quizState.i === quizState.qs.length-1 ? '결과 보기' : '다음 문제') + '</button>';
+  }
+  document.getElementById('quizBox').innerHTML = h;
+}
+function shuffle(a){ for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function startQuiz(mode){
+  var pool = db.items.slice();
+  if (mode==='star'){ var s = pool.filter(function(i){return i.star;}); if (s.length>=4) pool = s; else alert('중요 표현이 4개가 안 돼서 전체로 진행해요.'); }
+  if (mode==='weak'){ var w = pool.filter(function(i){return i.wrong > i.correct || (i.correct+i.wrong)===0;}); if (w.length>=4) pool = w; else alert('약한 표현이 4개가 안 돼서 전체로 진행해요.'); }
+  var picked = shuffle(pool.slice()).slice(0, Math.min(10, pool.length));
+  var qs = [];
+  for (var i=0;i<picked.length;i++) qs.push(makeQ(picked[i]));
+  quizState = {qs:qs, i:0, ok:0, done:false, wrongList:[]};
+  renderQuiz();
+}
+function makeQ(item){
+  var types = ['ko','en','listen'];
+  var type = types[Math.floor(Math.random()*3)];
+  if (type === 'listen' && !window.speechSynthesis) type = 'en';
+  var field = (type === 'ko') ? 'en' : 'ko';
+  var others = db.items.filter(function(o){ return o.id !== item.id && o[field] !== item[field]; });
+  var wrongs = shuffle(others).slice(0,3).map(function(o){ return o[field]; });
+  var opts = shuffle(wrongs.concat([item[field]]));
+  return {item:item, type:type, opts:opts, answer:opts.indexOf(item[field]), picked:null};
+}
+function pick(i){
+  var q = quizState.qs[quizState.i];
+  if (q.picked != null) return;
+  q.picked = i;
+  if (i === q.answer){ quizState.ok++; q.item.correct = (q.item.correct||0)+1; }
+  else { q.item.wrong = (q.item.wrong||0)+1; quizState.wrongList.push(q.item); }
+  save();
+  renderQuiz();
+  if (q.type !== 'ko') { /* 정답 확인 후 원어민 발음 한 번 */ setTimeout(function(){ speak(q.item.en, 0.9); }, 250); }
+}
+function nextQ(){
+  if (quizState.i === quizState.qs.length - 1){
+    quizState.done = true;
+    db.log.push({d:todayKey(), n:quizState.qs.length, ok:quizState.ok, t:Date.now()});
+    if (db.log.length > 200) db.log = db.log.slice(-200);
+    save();
+  } else quizState.i++;
+  renderQuiz();
+  window.scrollTo(0,0);
+}
+function renderQuizResult(){
+  var n = quizState.qs.length, ok = quizState.ok, pct = Math.round(ok/n*100);
+  var h = '<div class="card" style="text-align:center;padding:26px 16px">'
+    + '<div style="font-size:40px">' + (pct>=80?'🎉':(pct>=50?'👍':'💪')) + '</div>'
+    + '<div class="big" style="margin-top:6px">' + ok + ' / ' + n + '</div>'
+    + '<div class="mid">정답률 ' + pct + '%</div></div>';
+  if (quizState.wrongList.length){
+    h += '<div style="font-weight:700;margin:16px 0 8px">틀린 표현 다시 보기</div>';
+    for (var i=0;i<quizState.wrongList.length;i++){
+      var it = quizState.wrongList[i];
+      h += '<div class="card"><div class="en">' + esc(it.en) + '</div><div class="ko">' + esc(it.ko) + '</div>'
+        + '<button class="btn-line mini" style="margin-top:8px" onclick="speakOne(\'' + it.id + '\')">🔊 듣기</button></div>';
+    }
+    h += '<button class="btn-main" onclick="retryWrong()">틀린 것만 다시 풀기</button>';
+  }
+  h += '<button class="btn-line" style="width:100%;margin-top:10px" onclick="quizState=null;renderQuiz()">처음으로</button>';
+  document.getElementById('quizBox').innerHTML = h;
+}
+function retryWrong(){
+  var list = quizState.wrongList.slice();
+  if (list.length < 1) return;
+  var qs = [];
+  for (var i=0;i<list.length;i++) qs.push(makeQ(list[i]));
+  quizState = {qs:qs, i:0, ok:0, done:false, wrongList:[]};
+  renderQuiz(); window.scrollTo(0,0);
+}
+
+/* ---------- 기록 ---------- */
+function renderStats(){
+  var n = db.items.length, c = 0, w = 0, bestSum = 0, bestN = 0, today = 0, tk = todayKey();
+  for (var i=0;i<db.items.length;i++){
+    var it = db.items[i];
+    c += it.correct||0; w += it.wrong||0;
+    if (it.best){ bestSum += it.best; bestN++; }
+    var d = new Date(it.created);
+    if (d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() === tk) today++;
+  }
+  var acc = (c+w) ? Math.round(c/(c+w)*100) : 0;
+  var avg = bestN ? Math.round(bestSum/bestN) : 0;
+  var days = {};
+  for (var j=0;j<db.log.length;j++) days[db.log[j].d] = 1;
+  var h = '<div class="grid">'
+    + '<div class="stat"><b>' + n + '</b><span>모은 표현</span></div>'
+    + '<div class="stat"><b>' + today + '</b><span>오늘 추가</span></div>'
+    + '<div class="stat"><b>' + acc + '%</b><span>퀴즈 정답률</span></div>'
+    + '<div class="stat"><b>' + (avg||'-') + '</b><span>평균 발음 점수</span></div>'
+    + '<div class="stat"><b>' + db.log.length + '</b><span>푼 퀴즈 횟수</span></div>'
+    + '<div class="stat"><b>' + Object.keys(days).length + '</b><span>공부한 날</span></div>'
+    + '</div>';
+  var recent = db.log.slice(-7).reverse();
+  if (recent.length){
+    h += '<div style="font-weight:700;margin:18px 0 8px">최근 퀴즈</div>';
+    for (var k=0;k<recent.length;k++){
+      var r = recent[k], dt = new Date(r.t);
+      h += '<div class="card" style="display:flex;align-items:center;gap:10px;padding:12px 14px">'
+        + '<div style="flex:1;font-size:14px;color:var(--sub)">' + (dt.getMonth()+1) + '월 ' + dt.getDate() + '일 ' + dt.getHours() + '시</div>'
+        + '<span class="pill ' + (r.ok/r.n>=0.8?'g':'') + '">' + r.ok + '/' + r.n + '</span></div>';
+    }
+  }
+  h += '<div style="font-weight:700;margin:18px 0 8px">백업</div>'
+    + '<button class="btn-line" style="width:100%" onclick="exportData()">📤 내 표현 전부 내보내기</button>'
+    + '<button class="btn-line" style="width:100%;margin-top:10px" onclick="importData()">📥 백업 붙여넣어 되살리기</button>'
+    + '<div class="ver">' + VER + ' · 기록은 이 기기(사파리)에 저장돼요</div>';
+  document.getElementById('statsBox').innerHTML = h;
+}
+function exportData(){
+  var txt = JSON.stringify(db);
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){ alert('복사됐어요! 메모앱에 붙여넣어 보관하세요.'); },
+      function(){ prompt('아래 글자를 전부 복사해서 보관하세요', txt); });
+  } else prompt('아래 글자를 전부 복사해서 보관하세요', txt);
+}
+function importData(){
+  var t = prompt('백업해 둔 글자를 붙여넣으세요 (지금 기록은 덮어써져요)');
+  if (!t) return;
+  try{
+    var o = JSON.parse(t);
+    if (!o.items) throw 0;
+    db = o; if (!db.log) db.log = [];
+    save(); alert('되살렸어요!'); go('list');
+  }catch(e){ alert('형식이 올바르지 않아요.'); }
+}
+
+/* ---------- 시작 ---------- */
+document.addEventListener('touchstart', function unlock(){
+  document.removeEventListener('touchstart', unlock);
+  if (window.speechSynthesis){ try{ var u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); }catch(e){} }
+}, {passive:true});
+save();
+setFilter('all');
+go('list');
+</script>
+</body>
+</html>
