@@ -348,7 +348,7 @@ function clean(s){
     .replace(/^[:\-–—=|]+|[:\-–—=|]+$/g, '') // 앞뒤 구분기호 찌꺼기
     .trim();
 }
-function splitLine(L){
+function splitLine(L, noParen){
   // 1) 탭 = 엑셀에서 복사한 여러 칸
   if (L.indexOf('\t') >= 0){
     var p = L.split('\t');
@@ -370,6 +370,11 @@ function splitLine(L){
     if (r3) return r3;
     var r4 = pair(L.slice(h.index), L.slice(0, h.index), '');   // 한글이 앞인 경우
     if (r4) return r4;
+  }
+  // 5) 끝에 붙은 (설명) 을 떼고 한 번 더
+  if (!noParen){
+    var s = L.replace(/\s*[（(][^)）]*[)）]\s*$/, '').trim();
+    if (s && s !== L) return splitLine(s, true);
   }
   return null;
 }
