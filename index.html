@@ -343,7 +343,7 @@ function speak(text, rate){
 }
 
 /* ---------- 발음 채점 ---------- */
-function norm(s){ return String(s).toLowerCase().replace(/[‘’]/g,"'").replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+function norm(s){ return String(s).toLowerCase().replace(/[‘’']/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
 function lev(a,b){
   var m=a.length,n=b.length,prev=[],cur=[],i,j;
   for(j=0;j<=n;j++) prev[j]=j;
