@@ -123,7 +123,7 @@
       <button class="btn-line mini" id="fStar" onclick="setFilter('star')">⭐ 중요</button>
       <button class="btn-line mini" id="fWeak" onclick="setFilter('weak')">🔥 약한 것</button>
     </div>
-    <button class="btn-line mini" style="width:100%;margin-bottom:14px" onclick="openBulk()">📋 여러 개 한꺼번에 넣기 (PC에서 편해요)</button>
+    <button class="btn-line mini" style="width:100%;margin-bottom:14px" onclick="openBulk()">📋 표현 여러 개 넣기 (추천 묶음 · 붙여넣기)</button>
     <div id="list"></div>
   </section>
 
@@ -175,7 +175,9 @@
 <!-- 일괄 붙여넣기 시트 -->
 <div class="sheet-bg hide" id="bulkBg" onclick="if(event.target===this)closeBulk()">
   <div class="sheet">
-    <h2>📋 여러 개 한꺼번에 넣기</h2>
+    <h2>📋 표현 여러 개 넣기</h2>
+    <div id="packBox"></div>
+    <div style="display:flex;align-items:center;gap:10px;margin:20px 0 4px"><span style="flex:1;height:1px;background:var(--line)"></span><span style="font-size:12px;color:var(--sub)">또는 직접 붙여넣기</span><span style="flex:1;height:1px;background:var(--line)"></span></div>
     <div class="mid" style="text-align:left;margin-top:6px">한 줄에 하나씩 붙여넣으세요. <b>영어가 앞이든 한글이 앞이든</b> 알아서 나눕니다.</div>
     <div class="memo" style="margin-top:10px;line-height:1.9">
       take a walk : 산책하다<br>
@@ -200,7 +202,7 @@
    저장: localStorage("englishPhrases_v1") — 바뀔 때마다 즉시 저장
    ========================================================= */
 var KEY = 'englishPhrases_v1';
-var VER = '버전 2';
+var VER = '버전 3';
 var db, tab = 'list', filter = 'all', editId = null;
 
 function seed(){
@@ -340,6 +342,87 @@ function delItem(){
   save(); closeEdit(); renderList();
 }
 
+/* ---------- 추천 묶음 (앱에 내장) ---------- */
+var PACKS = [{
+  id:'light',
+  icon:'🪶',
+  name:'라이트 동사 32개',
+  desc:'take a walk, make a decision 처럼 원어민이 매일 쓰는 기본 표현',
+  items:[
+    ['take a walk','산책하다','Let’s take a walk after dinner.'],
+    ['take a look','한번 보다','Can you take a look at this?'],
+    ['take a quick look','빨리 한번 보다','I’ll take a quick look before we go.'],
+    ['take a sip','한 모금 마시다','She took a sip of her coffee.'],
+    ['take a bite','한 입 베어 물다','Do you want to take a bite?'],
+    ['take a quick bite','빨리 한 입 먹다','Let’s take a quick bite before we leave.'],
+    ['take a nap','낮잠 자다','I really need to take a nap.'],
+    ['take a deep breath','숨을 깊게 쉬다','Take a deep breath and relax.'],
+    ['take a shower','샤워하다','I’m going to take a shower first.'],
+    ['take a break','잠시 쉬다','Let’s take a break for ten minutes.'],
+    ['take a short break','잠깐 휴식하다','You look tired. Take a short break.'],
+    ['take a chance','한번 해보다, 기회를 잡다','Just take a chance and apply for it.'],
+    ['take a risk','위험을 감수하다','Sometimes you have to take a risk.'],
+    ['make a decision','결정을 내리다','I have to make a decision today.'],
+    ['make a mistake','실수하다','Don’t worry, everyone makes mistakes.'],
+    ['make an effort','노력하다','He’s making an effort to be on time.'],
+    ['make an excuse','변명하다','Don’t make an excuse. Just say sorry.'],
+    ['make a difference','변화를 만들다','Small things can make a difference.'],
+    ['make breakfast','아침을 차리다','I’ll make breakfast for you.'],
+    ['have a seat','앉다','Please have a seat.'],
+    ['have a chat','담소를 나누다','Let’s have a chat over coffee.'],
+    ['have a talk','이야기하다','We need to have a talk.'],
+    ['have a serious talk','진지한 대화를 하다','I think we should have a serious talk.'],
+    ['have a discussion','토론하다','They had a long discussion about it.'],
+    ['have a conversation','대화하다','I had a nice conversation with her.'],
+    ['have a long conversation','긴 대화를 나누다','We had a long conversation on the phone.'],
+    ['give a call','전화하다','Give me a call when you get home.'],
+    ['give a speech','연설하다','He gave a speech at the wedding.'],
+    ['give it a try','한번 해보다','It looks hard, but give it a try.'],
+    ['do a job','일을 하다','He did a good job on the report.'],
+    ['do a great job','아주 잘하다','You’re doing a great job!'],
+    ['do a favor','부탁을 들어주다','Can you do me a favor?']
+  ]
+}];
+function packNew(p){
+  var have = {}, n = 0;
+  for (var i = 0; i < db.items.length; i++) have[norm(db.items[i].en)] = 1;
+  for (var j = 0; j < p.items.length; j++) if (!have[norm(p.items[j][0])]) n++;
+  return n;
+}
+function renderPacks(){
+  var h = '<div class="mid" style="text-align:left;margin:10px 0 8px"><b>추천 묶음</b> — 버튼 한 번이면 끝이에요</div>';
+  for (var i = 0; i < PACKS.length; i++){
+    var p = PACKS[i], left = packNew(p);
+    h += '<div class="card" style="margin-bottom:8px">'
+      + '<div style="display:flex;align-items:center;gap:10px">'
+      +   '<div style="font-size:26px">' + p.icon + '</div>'
+      +   '<div style="flex:1"><div style="font-weight:700">' + esc(p.name) + '</div><div class="ko" style="font-size:13px">' + esc(p.desc) + '</div></div>'
+      + '</div>'
+      + (left
+          ? '<button class="btn-main" style="min-height:46px;font-size:16px;margin-top:10px" onclick="addPack(\'' + p.id + '\')">＋ ' + left + '개 넣기</button>'
+          : '<div class="pill g" style="margin-top:10px;display:inline-block">이미 다 들어있어요 ✓</div>')
+      + '</div>';
+  }
+  document.getElementById('packBox').innerHTML = h;
+}
+function addPack(id){
+  var p = null;
+  for (var i = 0; i < PACKS.length; i++) if (PACKS[i].id === id) p = PACKS[i];
+  if (!p) return;
+  var have = {}, added = 0, base = Date.now();
+  for (var j = 0; j < db.items.length; j++) have[norm(db.items[j].en)] = 1;
+  for (var k = 0; k < p.items.length; k++){
+    var it = p.items[k];
+    if (have[norm(it[0])]) continue;
+    have[norm(it[0])] = 1;
+    db.items.push(newItem(it[0], it[1], it[2], p.name, base + added));
+    added++;
+  }
+  save(); closeBulk();
+  alert(p.name + ' 중 ' + added + '개를 넣었어요!');
+  go('list'); window.scrollTo(0,0);
+}
+
 /* ---------- 여러 개 한꺼번에 넣기 ---------- */
 var HAN = /[가-힣]/, LAT = /[A-Za-z]/;
 function clean(s){
@@ -410,8 +493,8 @@ function parseBulk(txt){
 function openBulk(){
   document.getElementById('bulkTxt').value = '';
   document.getElementById('bulkPrev').innerHTML = '';
+  renderPacks();
   document.getElementById('bulkBg').classList.remove('hide');
-  setTimeout(function(){ document.getElementById('bulkTxt').focus(); }, 150);
 }
 function closeBulk(){ document.getElementById('bulkBg').classList.add('hide'); }
 function bulkPreview(){
